@@ -1,6 +1,8 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <time.h>
+
 #define PI 3.141592
 
 unsigned char ReadElement(FILE *p)
@@ -44,19 +46,34 @@ int main(int argc, char **argv)
 
   int then = (int)time(NULL);
 
-  if (argc < 4)
+  if (0)
   {
-    printf("Sintaxe: %s file_name rows cols\n", argv[0]);
-    exit(-1);
-  }
-  if (NULL == (data_file = fopen(argv[1], "rb")))
-  {
-    printf("File not found.\n");
-    exit(-1);
-  }
+    if (argc < 4)
+    {
+      printf("Sintaxe: %s file_name rows cols\n", argv[0]);
+      exit(-1);
+    }
 
-  rows = atoi(argv[2]);
-  cols = atoi(argv[3]);
+    if (NULL == (data_file = fopen(argv[1], "rb")))
+    {
+      printf("File not found.\n");
+      exit(-1);
+    }
+
+    rows = atoi(argv[2]);
+    cols = atoi(argv[3]);
+  }
+  else
+  {
+    if (NULL == (data_file = fopen("../bin/main.dat", "rb")))
+    {
+      printf("File not found.\n");
+      exit(-1);
+    }
+
+    rows = 4;
+    cols = 4;
+  }
 
   if (!(M = (unsigned char *)malloc((long)rows * cols)))
   {
