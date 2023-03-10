@@ -5,6 +5,13 @@
 
 #define PI 3.141592
 
+struct timespec tv;
+
+long GetTimeDiff(clock_t t1, clock_t t2)
+{
+  return ((double)t2 - t1) / CLOCKS_PER_SEC * 1000;
+}
+
 unsigned char ReadElement(FILE *p)
 {
   unsigned char element;
@@ -44,7 +51,7 @@ int main(int argc, char **argv)
 
   /***** Comecar a medir o tempo aqui *****/
 
-  int then = (int)time(NULL);
+  clock_t then = clock();
 
   if (0)
   {
@@ -71,8 +78,8 @@ int main(int argc, char **argv)
       exit(-1);
     }
 
-    rows = 4;
-    cols = 4;
+    rows = 4096;
+    cols = 4096;
   }
 
   if (!(M = (unsigned char *)malloc((long)rows * cols)))
@@ -135,21 +142,21 @@ int main(int argc, char **argv)
     }
   }
 
-  int now = (int)time(NULL);
+  clock_t now = clock();
 
-  int diff = now - then;
+  long diff = difftime(now, then);
 
-  printf("%d", diff);
+  printf("%d ms", diff);
 
   /**** Medir o tempo até aqui *****/
 
   /**** Saída apenas para verificação, não deve ser medida ****/
 
-  for (i = 0; i < cols; i++)
-  {
-    for (j = 0; j < rows; j++)
-    {
-      printf("%f ", *(Q + j * cols + i));
-    }
-  }
+  // for (i = 0; i < cols; i++)
+  // {
+  //   for (j = 0; j < rows; j++)
+  //   {
+  //     printf("%f ", *(Q + j * cols + i));
+  //   }
+  // }
 }
