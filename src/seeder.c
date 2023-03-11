@@ -19,7 +19,7 @@ int main(int argc, char **argv)
   long i = 0;
   while (i < SIDE * SIDE)
   {
-    fprintf(f, "%s%d", i == 0 ? "" : " ", rand());
+    putc(rand(), f);
 
     i++;
   }
