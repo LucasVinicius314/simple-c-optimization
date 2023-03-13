@@ -5,7 +5,8 @@
 
 #define PI 3.141592
 
-#define SIDE 4096
+#define SIDE_X 2048
+#define SIDE_Y 2048
 #define C_SIZE 256
 
 struct timespec tv;
@@ -160,8 +161,8 @@ int main(int argc, char **argv)
       exit(-1);
     }
 
-    rows = SIDE;
-    cols = SIDE;
+    rows = SIDE_X;
+    cols = SIDE_Y;
   }
 
   if (!(M = (unsigned char *)malloc((long)rows * cols)))

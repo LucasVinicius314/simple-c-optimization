@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIDE 4096
+#define SIDE_X 16384
+#define SIDE_Y 8192
 
 int main(int argc, char **argv)
 {
@@ -17,7 +18,7 @@ int main(int argc, char **argv)
   }
 
   long i = 0;
-  while (i < SIDE * SIDE)
+  while (i < SIDE_X * SIDE_Y)
   {
     putc(rand(), f);
 
