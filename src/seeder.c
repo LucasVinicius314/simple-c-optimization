@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIDE_X 16384
+#define SIDE_X 8192
 #define SIDE_Y 8192
 
 int main(int argc, char **argv)

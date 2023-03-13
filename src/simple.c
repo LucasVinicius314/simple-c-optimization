@@ -5,7 +5,7 @@
 
 #define PI 3.141592
 
-#define SIDE_X 16384
+#define SIDE_X 8192
 #define SIDE_Y 8192
 #define C_SIZE 256
 
